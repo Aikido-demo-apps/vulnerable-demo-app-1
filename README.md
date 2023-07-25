@@ -1,1 +1,1 @@
-# demo-app-1
+# Aikido demo repository
