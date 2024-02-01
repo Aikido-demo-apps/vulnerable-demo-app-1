@@ -1,0 +1,9 @@
+<manifest>
+    <application android:debuggable="true">
+        <activity>
+            <intent-filter android:exported="true">
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
