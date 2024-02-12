@@ -1,0 +1,18 @@
+on: workflow_dispatch
+
+name: Scan
+jobs:
+  scan-repo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Aikido selfscanner
+        uses: jaxxstorm/action-install-gh-release@v1.10.0
+        with:
+          repo: AikidoSec/aikido-selfscanner
+          tag: v39f3d0caf5cc61ee318dde72494950209a1834df
