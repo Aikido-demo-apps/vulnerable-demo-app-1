@@ -16,3 +16,5 @@ jobs:
         with:
           repo: AikidoSec/aikido-selfscanner
           tag: v39f3d0caf5cc61ee318dde72494950209a1834df
+          platform: linux
+          arch: x86-64
