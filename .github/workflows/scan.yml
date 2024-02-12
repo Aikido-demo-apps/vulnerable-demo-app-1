@@ -17,3 +17,5 @@ jobs:
           repo: 'skeymeulen/releasetetest'
           version: 'tags/v1'
           file: 'aikidoselfscanner_linux_X86_64.zip'
+      - name: unzip
+        run: unzip aikidoselfscanner_linux_X86_64.zip
