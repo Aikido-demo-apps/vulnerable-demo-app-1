@@ -12,9 +12,9 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install Aikido selfscanner
-        uses: jaxxstorm/action-install-gh-release@v1.10.0
+        uses: dsaltares/fetch-gh-release-asset@master
         with:
-          repo: AikidoSec/aikido-selfscanner
-          tag: v39f3d0caf5cc61ee318dde72494950209a1834df
-          platform: linux
-          arch: x86-64
+          repo: 'AikidoSec/aikido-selfscanner'
+          version: 'tags/v39f3d0caf5cc61ee318dde72494950209a1834df'
+          file: 'aikidoselfscanner_linux_X86_64_v39f3d0caf5cc61ee318dde72494950209a1834df.zip'
+          token: ${{ secrets.GITHUB_TOKEN }}
