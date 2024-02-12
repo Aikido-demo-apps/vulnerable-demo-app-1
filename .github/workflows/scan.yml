@@ -11,6 +11,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+          path: demo-app
       - name: Install Aikido selfscanner
         uses: dsaltares/fetch-gh-release-asset@master
         with:
@@ -22,4 +23,4 @@ jobs:
       - name: test
         run: ls
       - name: Run scan
-        run: ./aikido-selfscanner scan . --apikey 123
+        run: ./aikido-selfscanner scan demo-app --apikey 123
