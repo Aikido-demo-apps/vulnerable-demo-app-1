@@ -20,4 +20,4 @@ jobs:
       - name: unzip
         run: unzip aikidoselfscanner_linux_X86_64.zip
       - name: Run scan
-        run: ./aikido-selfscanner --help
+        run: ./aikido-selfscanner scan . --apikey 123
