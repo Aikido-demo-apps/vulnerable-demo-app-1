@@ -23,4 +23,4 @@ jobs:
       - name: test
         run: ls
       - name: Run scan
-        run: ./aikido-local-scanner scan demo-app --apikey AIK_CI_vZOreWZuhM1s3fAEqejFWL2G84inBI8Mv5rLLFglicLnBDudHosTxJYVU4YruLQy --repositoryname MyRepo
+        run: ./aikido-local-scanner scan demo-app --apikey AIK_CI_vZOreWZuhM1s3fAEqejFWL2G84inBI8Mv5rLLFglicLnBDudHosTxJYVU4YruLQy --repositoryname MyRepo2 --branchname master
