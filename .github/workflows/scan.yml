@@ -24,5 +24,6 @@ jobs:
         run: ls
       - name: Run scan
         run: ./aikido-local-scanner scan demo-app --apikey AIK_CI_vZOreWZuhM1s3fAEqejFWL2G84inBI8Mv5rLLFglicLnBDudHosTxJYVU4YruLQy --repositoryname MyRepo2 --branchname master --scanners semgrep
-      - name: show tenp folder
+      - name: show temp folder
+        if: success() || failure()
         run: ls /tmp
