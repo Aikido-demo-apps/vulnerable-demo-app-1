@@ -48,5 +48,5 @@ seaborn==0.10.1
     # via -r requirements.in
 six==1.16.0
     # via python-dateutil
-django==3.1
+django==5.0
     # via -r requirements.in
