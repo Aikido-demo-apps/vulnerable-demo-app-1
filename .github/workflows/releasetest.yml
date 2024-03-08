@@ -6,6 +6,8 @@ jobs:
   github-release:
     runs-on: ubuntu-latest
     steps:
+      - name: Log version
+        run: echo running on branch ${GITHUB_REF##*/}
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
