@@ -40,11 +40,6 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - name: Install node project dependencies
-        run: npm install
       - name: Zip artifact
         run: zip -j aikido-local-scanner.zip src/index.php
       - name: Upload Release Asset
