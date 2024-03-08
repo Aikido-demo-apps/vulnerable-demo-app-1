@@ -7,20 +7,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Log version
-        run: echo running on branch ${GITHUB_REF##*/}
+        run: echo running on branch ${{ github.ref##*/ }}
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${GITHUB_REF}
-          release_name: Release ${GITHUB_REF##*/}
+          tag_name: ${{ github.ref##*/ }}
+          release_name: Release ${{ github.ref##*/ }}
           draft: false
           prerelease: false
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
-      version: ${GITHUB_REF##*/}
+      version: ${{ github.ref##*/ }}
   build-release-artifacts:
     strategy:
       matrix:
