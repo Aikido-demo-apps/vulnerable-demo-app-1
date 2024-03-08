@@ -6,8 +6,6 @@ jobs:
   github-release:
     runs-on: ubuntu-latest
     steps:
-      - name: Get tag name
-        run: echo "Tag name: ${{ env.GITHUB_REF#refs/tags/ }}"
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
