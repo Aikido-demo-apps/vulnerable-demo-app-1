@@ -12,13 +12,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
+          tag_name: ${{ env.GITHUB_REF#refs/tags/ }}
+          release_name: Release ${{ env.GITHUB_REF#refs/tags/ }}
           draft: false
           prerelease: false
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
-      version: ${{ github.ref_name }}
+      version: ${{ env.GITHUB_REF#refs/tags/ }}
   build-release-artifacts:
     strategy:
       matrix:
