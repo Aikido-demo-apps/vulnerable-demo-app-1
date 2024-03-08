@@ -1,0 +1,60 @@
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+name: Release test 
+
+jobs:
+  github-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.github.ref_name }}
+          release_name: Release ${{ github.github.ref_name }}
+          draft: false
+          prerelease: false
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+      version: ${{ github.github.ref_name }}
+  build-release-artifacts:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            name: linux
+            suffix: ''
+    needs: [github-release]
+    if: needs.github-release.outputs.upload_url != ''
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9  # v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install node project dependencies
+        run: npm install
+      - name: Zip artifact
+        run: zip -j aikido-local-scanner.zip src/index.php
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.github-release.outputs.upload_url }}
+          asset_path: aikido-local-scanner.zip
+          asset_name: aikido-local-scanner_${{ matrix.name }}_X86_64.zip
+          asset_content_type: application/zip
+      - name: Sync zip to S3 bucket
+        run: |
+          echo "aws s3 cp aikido-local-scanner.zip s3://aikido-local-scanner/${{ needs.github-release.outputs.version }}/linux_x86_64/aikido-local-scanner.zip"
