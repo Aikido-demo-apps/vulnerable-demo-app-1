@@ -1,0 +1,10 @@
+on: workflow_dispatch
+
+name: test
+
+jobs:
+  github-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
