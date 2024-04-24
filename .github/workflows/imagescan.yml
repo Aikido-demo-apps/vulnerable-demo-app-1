@@ -1,6 +1,6 @@
 on: workflow_dispatch
 
-name: Scan
+name: Image scan
 jobs:
   scan-repo:
     runs-on: ubuntu-latest
