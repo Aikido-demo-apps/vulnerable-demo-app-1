@@ -1,0 +1,26 @@
+on: workflow_dispatch
+
+name: Scan
+jobs:
+  scan-repo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: demo-app
+      - name: Install Aikido selfscanner
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          repo: 'skeymeulen/releasetetest'
+          version: 'tags/v1'
+          file: 'aikidoselfscanner_linux_X86_64.zip'
+      - name: unzip
+        run: unzip aikidoselfscanner_linux_X86_64.zip
+      - name: test
+        run: chmod +x aikido-local-scanner
+      - name: Run scan
+        run: ./aikido-local-scanner centos partner-portal-php --apikey=AIK_CI_g8ak3TPsneEBqQ8BdLHYIOwaHV95FHuV9HTOrmYUCtSWC19ldgQXJasvixeXUXP6 --fail-on low --debug
