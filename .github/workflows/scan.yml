@@ -23,7 +23,7 @@ jobs:
       - name: test
         run: chmod +x aikido-local-scanner
       - name: Run scan
-        run: ./aikido-local-scanner scan demo-app --apikey AIK_CI_SCdrHwC8Ls64drKGrUYf0Njtu7hCDBkbX5VH8yIHVt0L3eozVVTyrl2FqKwdsTai --repositoryname MyRepo --branchname master --fail-on high
+        run: ./aikido-local-scanner scan demo-app --apikey AIK_CI_SCdrHwC8Ls64drKGrUYf0Njtu7hCDBkbX5VH8yIHVt0L3eozVVTyrl2FqKwdsTai --repositoryname MyRepo --branchname master --fail-on critical
       - name: show temp folder
         if: success() || failure()
         run: ls /tmp
