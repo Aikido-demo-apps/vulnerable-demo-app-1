@@ -23,4 +23,4 @@ jobs:
       - name: test
         run: chmod +x aikido-local-scanner
       - name: Run scan
-        run: ./aikido-local-scanner image-scan centos partner-portal-php --apikey=AIK_CI_SCdrHwC8Ls64drKGrUYf0Njtu7hCDBkbX5VH8yIHVt0L3eozVVTyrl2FqKwdsTai --fail-on low --debug --max-polling-attempts 100
+        run: ./aikido-local-scanner image-scan centos --apikey=AIK_CI_jONQYH3PHEdujILQx3B73KCTIdzxOxYU4MC85wcGFDWrFEvVglBwSmelcv5e1XXf --fail-on low --debug --max-polling-attempts 100
