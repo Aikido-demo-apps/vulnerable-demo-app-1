@@ -5,7 +5,7 @@ jobs:
   aikido-local-scan-repo:
     runs-on: ubuntu-latest
     container:
-      image: sanderkeymeulen/aikidoselfscannerdocker
+      image: aikidosecurity/local-scanner:latest
     steps: 
       - uses: actions/checkout@v4 
         with: 
