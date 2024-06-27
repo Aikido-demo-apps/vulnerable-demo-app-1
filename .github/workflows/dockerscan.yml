@@ -12,4 +12,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }} 
           path: demo-app
       - name: Run scan
-        run: aikido-local-scanner scan demo-app --apikey AIK_CI_SCdrHwC8Ls64drKGrUYf0Njtu7hCDBkbX5VH8yIHVt0L3eozVVTyrl2FqKwdsTai --repositoryname MyRepo --branchname master --fail-on critical
+        run: aikido-local-scanner scan demo-app --apikey AIK_CI_xHvwurJxXp3vGkAjAqOuxiY4abSuxISH7cujGLa6mnVVAarh8ACmq8nNyk3xe0s7 --repositoryname MyRepo --branchname master --fail-on critical
