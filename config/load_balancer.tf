@@ -2,6 +2,7 @@ resource "aws_alb" "main" {
   name            = "demo-load-balancer"
   subnets         = [for subnet in aws_subnet.public: "${subnet.id}"]
   security_groups = [aws_security_group.external.id]
+  drop_invalid_header_fields = true
 }
 
 resource "aws_alb_target_group" "api" {
