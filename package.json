@@ -10,7 +10,7 @@
     "dev": "nodemon src/index.js"
   },
   "dependencies": {
-    "@sentry/browser": "5.7.1",
+    "@sentry/browser": "7.119.1",
     "@sentry/integrations": "5.7.1",
     "auth0-js": "9.13.2",
     "babel-runtime": "6.26.0",
