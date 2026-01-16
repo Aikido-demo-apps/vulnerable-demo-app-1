@@ -4,6 +4,7 @@ resource "aws_db_subnet_group" "default" {
   subnet_ids  = [for db_subnet in aws_subnet.private: "${db_subnet.id}"]
 }
 
+
 resource "aws_db_instance" "default" {
     identifier            = "${var.aws_database_identifier}"
     allocated_storage     = 10
